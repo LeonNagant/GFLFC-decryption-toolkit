@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  selfcheck:
+    name: self-check (py${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.10", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Byte-compile all scripts
+        run: |
+          python -m compileall -q scripts && echo "compileall ok"
+
+      - name: Run environment self-check
+        working-directory: scripts
+        run: python check_env.py
+
+      - name: CLI smoke test (--help on every script)
+        run: |
+          set -e
+          for f in scripts/*.py; do
+            case "$(basename "$f")" in
+              decrypt.py|check_env.py) continue ;;
+            esac
+            echo "== $f"
+            python "$f" --help > /dev/null
+          done
+
+  guard:
+    name: no game assets committed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fail if binary game assets are tracked
+        run: |
+          set -e
+          bad=$(git ls-files | grep -Ei '\.(apk|ab|assets|bundle|subpackage_segment|dll\.bytes|png|obj|ttf)$' || true)
+          if [ -n "$bad" ]; then
+            echo "::error::Tracked game/binary assets found:"
+            echo "$bad"
+            exit 1
+          fi
+          echo "clean"
+
+      - name: Fail on absolute personal paths
+        run: |
+          set -e
+          hits=$(grep -rInE '(^|[^A-Za-z0-9+.-])[A-Za-z]:[\\/]|/home/[^/ ]+/|/Users/[^/ ]+/' \
+                 --include='*.md' --include='*.py' --include='*.json' --include='*.txt' \
+                 --exclude-dir=.git . || true)
+          if [ -n "$hits" ]; then
+            echo "::error::Absolute personal paths found:"
+            echo "$hits"
+            exit 1
+          fi
+          echo "clean"

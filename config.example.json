@@ -1,0 +1,7 @@
+{
+  "_comment": "HotfixLocalConfig.json 的最小示例；实际值从游戏 APK 的 assets/Assets/CSnapAssetSetting/HotfixLocalConfig.json 读取。",
+  "serverUrls": [
+    "https://net-cdn.hecategames.com/prod"
+  ],
+  "channelId": "android"
+}
