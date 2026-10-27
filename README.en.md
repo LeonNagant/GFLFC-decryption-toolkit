@@ -313,7 +313,7 @@ Details on the collaboration, prompt organisation and verification method:
 | Content | URL |
 |---|---|
 | Encrypted original resources (player backup, 1,506 bundles) | <https://archive.org/details/GFLFC_resourcepack_202606> |
-| Decrypted resources (86,616 files / 6.62 GiB) | Internet Archive (link added after upload) |
+| Decrypted resources (22,221 files / 6.51 GiB) | Internet Archive (link added after upload) |
 
 ---
 
