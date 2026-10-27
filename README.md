@@ -252,7 +252,7 @@ python scripts/export_subpackage.py \
 | 内容 | 地址 |
 |---|---|
 | 未解密的原始资源（玩家备份，1506 bundle） | <https://archive.org/details/GFLFC_resourcepack_202606> |
-| 已解密后的资源（22,221 文件 / 6.51 GiB） | 见 Internet Archive（上传后补充） |
+| 已解密后的资源（22,221 文件 / 6.51 GiB） | <https://archive.org/details/gflfc-unpacked-resources> |
 
 ### 8.3 许可
 
