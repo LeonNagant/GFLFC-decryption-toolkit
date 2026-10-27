@@ -294,7 +294,30 @@ Details on the collaboration, prompt organisation and verification method:
 
 ---
 
-## 10. License
+## 10. Acknowledgements
+
+- **Hecate Studio (黑卡蒂工作室)** — the team behind *Girls' Frontline: Fire Control*.
+  This toolkit only parses what they built; all game assets remain their property and
+  that of the original publisher.
+- **The player who uploaded the `GFLFC_resourcepack_202606` backup to the Internet
+  Archive** — that full pre-shutdown runtime dump (1,506 bundles) is the baseline used
+  to verify that our CDN backup was complete, and it supplied every hotfix change
+  missing from the retail APK. Original upload:
+  <https://archive.org/details/GFLFC_resourcepack_202606>
+- **Neptuwunium**, author of **gffcdl** — source of the XOR key and the initial
+  decryption implementation.
+- **The UnityPy authors** — without it, UnityFS could not become usable meshes and textures.
+
+### Related links
+
+| Content | URL |
+|---|---|
+| Encrypted original resources (player backup, 1,506 bundles) | <https://archive.org/details/GFLFC_resourcepack_202606> |
+| Decrypted resources (86,616 files / 6.62 GiB) | Internet Archive (link added after upload) |
+
+---
+
+## 11. License
 
 Released under **EUPL-1.2** (`LICENSE`) to stay compatible with upstream gffcdl.
 Third-party components and exceptions are described in `NOTICE.md`.
@@ -302,4 +325,4 @@ Third-party components and exceptions are described in `NOTICE.md`.
 - `scripts/decrypt.py` — from **gffcdl** by Neptuwunium, EUPL-1.2
   (<https://codeberg.org/neptuwunium/gffcdl>)
 - **UnityPy** — MIT
-- Remaining scripts — original work for this project
+- Remaining scripts — original work for this project, released under the same EUPL-1.2

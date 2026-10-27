@@ -236,11 +236,31 @@ python scripts/export_subpackage.py \
 
 ## 8. 致谢与许可
 
+### 8.1 致谢
+
+- **黑卡蒂工作室（Hecate Studio）**——《少女前线：火力控制》的开发团队。
+  本工具包只是解析他们做出来的东西；所有游戏资源版权归工作室与原发行方所有。
+- **在 Internet Archive 上传 `GFLFC_resourcepack_202606` 备份的玩家**——
+  这份关服前导出的完整运行数据（1506 个 bundle），是本项目验证"CDN 备份是否完整"
+  的基准，也补上了客户端首包缺失的全部热更内容。原地址：
+  <https://archive.org/details/GFLFC_resourcepack_202606>
+- **gffcdl 的作者 Neptuwunium**——XOR 密钥与初始解密实现的来源。
+- **UnityPy 的作者们**——没有它就无法把 UnityFS 变成可用的模型和贴图。
+
+### 8.2 相关链接
+
+| 内容 | 地址 |
+|---|---|
+| 未解密的原始资源（玩家备份，1506 bundle） | <https://archive.org/details/GFLFC_resourcepack_202606> |
+| 已解密后的资源（86,616 文件 / 6.62 GiB） | 见 Internet Archive（上传后补充） |
+
+### 8.3 许可
+
 - XOR 密钥与初始解密实现来自 **gffcdl**（作者 Neptuwunium，EUPL-1.2）：
   <https://codeberg.org/neptuwunium/gffcdl>
   `scripts/decrypt.py` 保留其许可，全文见根目录 `LICENSE`。
 - Unity 资源解析依赖 **UnityPy**（MIT）。
-- 其余脚本为本项目原创，按“原样提供”，不附带任何担保。
+- 其余脚本为本项目原创，与 `decrypt.py` 一同按 EUPL-1.2 发布，不附带任何担保。
 
 详见 `NOTICE.md`。
 
@@ -283,5 +303,5 @@ python scripts/export_subpackage.py \
 ## 10. 许可
 
 本仓库整体按 **EUPL-1.2** 发布（`LICENSE`），以兼容上游 gffcdl 的许可。
-第三方组件与例外说明见 `NOTICE.md`。
+第三方组件与例外说明见 `NOTICE.md`，逐项致谢见 [8.1](#81-致谢)。
 

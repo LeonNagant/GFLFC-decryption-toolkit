@@ -36,7 +36,8 @@ v0.5.3 的 `split_UnityDataAssetPack.apk` 为 1,476,982,857 字节，
 
 ## 4. 玩家存档 vs 客户端
 
-对比一个 2026-06 的玩家完整数据（1,506 bundle）与 0.5.3 首包（1,025 bundle）：
+对比一个 2026-06 的玩家完整数据（1,506 bundle）与 0.5.3 首包（1,025 bundle）。
+原始备份地址：<https://archive.org/details/GFLFC_resourcepack_202606>
 
 - 新增 481 个 bundle，全部是已下载子包内容；
 - 0 个首包 bundle 缺失；
